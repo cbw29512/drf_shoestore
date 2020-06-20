@@ -42,6 +42,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -121,11 +123,25 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-REST_FRAMEWORK = {
-'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-'PAGE_SIZE': 10
-}
+# REST_FRAMEWORK = {
+# 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+# 'PAGE_SIZE': 10
+# }
 
+CORS_ORIGIN_WHITELIST = (
+    'http://127.0.0.1:3000',
+    'http://localhost:3000'
+)
+
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
 
 
 # Here is a little story about a man names Joe. Poor Tribal chief barely kept his 10 wives and 57 kids feed.
